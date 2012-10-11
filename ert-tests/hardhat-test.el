@@ -81,8 +81,13 @@
     (kill-buffer (current-buffer))))
 
 (ert-deftest hardhat-example-file-06 nil
-  (let ((hardhat-bof-content-editable-regexps '("^;+ *allow editing this file")))
-    (find-file "./examples/elisp_editpat_readonlyfile.el")
+  (let ((hardhat-bof-content-editable-regexps '("^;+ *allow editing this file"))
+        (file "./examples/elisp_editpat_readonlyfile.el"))
+    (should
+     (file-exists-p file))
+    (should-not
+     (file-writable-p file))
+    (find-file file)
     (should-not
      (hardhat-buffer-included-p (current-buffer)))
     (should
