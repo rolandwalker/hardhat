@@ -10,6 +10,7 @@
 (require 'ignoramus)
 (require 'hardhat)
 
+
 ;;; working-directory
 
 (ert-deftest hardhat-aaa-working-directory-01 nil
@@ -292,11 +293,15 @@
             hardhat-reasons))
     (kill-buffer (current-buffer))))
 
+
 ;;; hardhat-customize-set-regexp (symbol value) -- todo
+
 
 ;;; hardhat-local-hook (&rest args) -- todo
 
+
 ;;; hardhat-global-hook (&rest args) -- todo
+
 
 ;;
 ;; Emacs
