@@ -8,7 +8,7 @@
 ;; Version: 0.3.0
 ;; Last-Updated: 11 Oct 2012
 ;; EmacsWiki: Hardhat
-;; Package-Requires: ((ignoramus "0.6.0"))
+;; Package-Requires: ((ignoramus "0.6.2"))
 ;; Keywords: convenience
 ;;
 ;; Simplified BSD License

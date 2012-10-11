@@ -32,7 +32,7 @@ TEST_DEP_1=ert
 TEST_DEP_1_STABLE_URL=http://bzr.savannah.gnu.org/lh/emacs/emacs-24/download/head:/ert.el-20110112160650-056hnl9qhpjvjicy-2/ert.el
 TEST_DEP_1_LATEST_URL=https://raw.github.com/emacsmirror/emacs/master/lisp/emacs-lisp/ert.el
 TEST_DEP_2=ignoramus
-TEST_DEP_2_STABLE_URL=https://raw.github.com/rolandwalker/ignoramus/6aa19600d094953a66bad3446a35395de0835848/ignoramus.el
+TEST_DEP_2_STABLE_URL=https://raw.github.com/rolandwalker/ignoramus/f530a8d58fa8422c651015260600eeda7baefc15/ignoramus.el
 TEST_DEP_2_LATEST_URL=https://raw.github.com/rolandwalker/ignoramus/master/ignoramus.el
 
 .PHONY : build downloads downloads-latest autoloads test-autoloads test-travis \
