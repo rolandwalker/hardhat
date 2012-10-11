@@ -13,9 +13,12 @@
 ;;; working-directory
 
 (ert-deftest hardhat-aaa-working-directory-01 nil
-  "Check that we are running from the tests directory"
+  "Check that we are running from the ert-tests directory"
   (should
-   (file-exists-p "./examples/elisp_nopat.el")))
+   (file-exists-p "./examples/elisp_nopat.el"))
+  (should
+   (string-match-p "/ert-tests/\\'" default-directory)))
+
 
 ;;; example files
 
