@@ -85,6 +85,7 @@
         (file "./examples/elisp_editpat_readonlyfile.el"))
     (should
      (file-exists-p file))
+    (set-file-modes file #o444)
     (should-not
      (file-writable-p file))
     (find-file file)
