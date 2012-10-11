@@ -99,9 +99,9 @@ Compatibility and Requirements
 Prior art
 ---------
 
-* do-not-edit.el
-  [http://user42.tuxfamily.org/do-not-edit/index.html](http://user42.tuxfamily.org/do-not-edit/index.html)
-  Kevin Ryde <user42@zip.com.au>
+* do-not-edit.el  
+  [http://user42.tuxfamily.org/do-not-edit/index.html](http://user42.tuxfamily.org/do-not-edit/index.html)  
+  Kevin Ryde <user42@zip.com.au>  
 
 Bugs
 ----
