@@ -275,6 +275,8 @@ All patterns are case-insensitive."
                                                 "\\`\\.dropbox\\.cache\\'"
                                                 "\\`\\.emacs\\.desktop\\'"
                                                 "\\`\\.emacs\\.desktop\\.lock\\'"
+                                                "\\.orig\\'"
+                                                "\\.rej\\'"
                                                 )
   "Protect buffer from editing if these patterns match filename (sans directory).
 
