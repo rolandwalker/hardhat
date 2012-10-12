@@ -747,6 +747,7 @@ purpose of optimization."
 
 ;;; minor-mode definition
 
+;;;###autoload
 (define-minor-mode hardhat-mode
   "Turn on `hardhat-mode'.
 
@@ -825,6 +826,7 @@ If called with a negative ARG, deactivate `hardhat-mode' in the buffer."
 ;; The global mode function is written by hand, avoiding the macro
 ;; `define-globalized-minor-mode', so as to confine checking to
 ;; specific hooks.  Otherwise checks would fire much more often.
+;;;###autoload
 (defun global-hardhat-mode (&optional arg)
   "Toggle Hardhat mode in all buffers.
 With prefix ARG, enable Global-Hardhat mode if ARG is positive;
@@ -914,6 +916,7 @@ ARGS are ignored."
 
 ;;; interactive commands
 
+;;;###autoload
 (defun hardhat-status ()
   "Echo the `hardhat-mode' status of the current buffer."
   (interactive)
