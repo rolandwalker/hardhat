@@ -94,7 +94,7 @@ Compatibility and Requirements
 	GNU Emacs version 23.3           : yes
 	GNU Emacs version 22.3 and lower : no
 
-	Uses if present: [ignoramus.el](http://github.com/rolandwalker/ignoramus)
+Uses if present: [ignoramus.el](http://github.com/rolandwalker/ignoramus)
 
 Prior art
 ---------
