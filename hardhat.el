@@ -166,6 +166,7 @@
 (defvar hardhat-computed-regexps (make-hash-table :test 'eq)
   "Per-mode cache for regexps computed from defcustom settings.")
 
+;;;###autoload
 (defun hardhat-customize-set-regexp (symbol value)
   "Set function which clears the computed regexp cache.
 
