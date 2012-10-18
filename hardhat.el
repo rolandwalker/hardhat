@@ -740,6 +740,8 @@ purpose of optimization."
     (let* ((file (file-truename (expand-file-name (buffer-file-name buf))))
            (basename (file-name-nondirectory file))
            (answer nil))
+      (when (fboundp 'ignoramus-compute-common-regexps)
+        (ignoramus-compute-common-regexps))
       (unless (eq 'file-local-variable (cadr hardhat-reasons))
         (setq hardhat-reasons (catch 'hardhat
                                 (dolist (directive hardhat-directives)
