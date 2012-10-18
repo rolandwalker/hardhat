@@ -74,9 +74,10 @@
 ;; Notes
 ;;
 ;;     Hardhat-mode takes no action until the user attempts an
-;;     interactive command in a buffer.  This is for compatibility:
-;;     an Emacs Lisp library may freely open and write to a file
-;;     protected by hardhat-mode, so long as it is done programatically.
+;;     interactive command in a buffer.  This is (out of an abundance
+;;     of caution) for compatibility: an Emacs Lisp library may freely
+;;     open and write to a file protected by hardhat-mode, so long as
+;;     it is done programatically.
 ;;
 ;;     For any of the options settable in customize, rules making
 ;;     buffers "editable" override rules making buffers "protected".
