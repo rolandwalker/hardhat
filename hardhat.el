@@ -5,8 +5,8 @@
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/hardhat
 ;; URL: http://raw.github.com/rolandwalker/hardhat/master/hardhat.el
-;; Version: 0.3.4
-;; Last-Updated: 11 Oct 2012
+;; Version: 0.3.6
+;; Last-Updated: 18 Oct 2012
 ;; EmacsWiki: Hardhat
 ;; Package-Requires: ((ignoramus "0.6.2"))
 ;; Keywords: convenience
@@ -180,7 +180,7 @@ SYMBOL and VALUE are passed to `custom-set-default'."
 ;;;###autoload
 (defgroup hardhat nil
   "Protect against clobbering user-writable files."
-  :version "0.3.4"
+  :version "0.3.6"
   :link '(emacs-commentary-link "hardhat")
   :prefix "hardhat-"
   :group 'convenience)
