@@ -39,13 +39,13 @@ you visit a file which looks unsafe to edit, Emacs will make the
 buffer read-only -- even when the underlying file is writable.
 
 The read-only protection can be turned off for a buffer by the
-usual methods, or by toggling off buffer-local hardhat-mode via
+usual methods, or by toggling off buffer-local `hardhat-mode` via
 the lighter menu or
 
 	M-x hardhat-mode RET
 
-If a buffer is not visiting a file, hardhat-mode has no effect.
-If the visited file is not writable by the user, hardhat-mode
+If a buffer is not visiting a file, `hardhat-mode` has no effect.
+If the visited file is not writable by the user, `hardhat-mode`
 has no effect.
 
 To use hardhat, place the hardhat.el library somewhere
@@ -71,10 +71,10 @@ M-x customize-group RET hardhat RET
 Notes
 -----
 
-Hardhat-mode takes no action until the user attempts an
+`hardhat-mode` takes no action until the user attempts an
 interactive command in a buffer.  This is (out of an abundance
 of caution) for compatibility: an Emacs Lisp library may freely
-open and write to a file protected by hardhat-mode, so long as
+open and write to a file protected by `hardhat-mode`, so long as
 it is done programatically.
 
 For any of the options settable in customize, rules making

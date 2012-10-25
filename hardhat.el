@@ -50,8 +50,8 @@
 ;;
 ;;     M-x hardhat-mode RET
 ;;
-;; If a buffer is not visiting a file, hardhat-mode has no effect.
-;; If the visited file is not writable by the user, hardhat-mode
+;; If a buffer is not visiting a file, `hardhat-mode' has no effect.
+;; If the visited file is not writable by the user, `hardhat-mode'
 ;; has no effect.
 ;;
 ;; To use hardhat, place the hardhat.el library somewhere
@@ -73,10 +73,10 @@
 ;;
 ;; Notes
 ;;
-;;     Hardhat-mode takes no action until the user attempts an
+;;     `hardhat-mode' takes no action until the user attempts an
 ;;     interactive command in a buffer.  This is (out of an abundance
 ;;     of caution) for compatibility: an Emacs Lisp library may freely
-;;     open and write to a file protected by hardhat-mode, so long as
+;;     open and write to a file protected by `hardhat-mode', so long as
 ;;     it is done programatically.
 ;;
 ;;     For any of the options settable in customize, rules making
