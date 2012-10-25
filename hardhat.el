@@ -83,7 +83,8 @@
 ;;     buffers "editable" override rules making buffers "protected".
 ;;
 ;;     A Boolean file-local variable `hardhat-protect' is provided.
-;;     When `hardhat-protect' is set, no other rules are consulted.
+;;     When `hardhat-protect' is set to either t or nil, no other
+;;     rules are consulted.
 ;;
 ;;     Regular-expression matches are case-insensitive.  A case-
 ;;     sensitive test can be implemented by adding custom function
