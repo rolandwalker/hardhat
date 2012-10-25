@@ -879,10 +879,12 @@ ARG is omitted or nil."
 
 ;;; hooks
 
-(defun hardhat-local-variables-hook (&rest args)
+(defun hardhat-local-variables-hook (&rest _ignored)
   "Hook to check a buffer for `hardhat-mode' protection based on file-locals.
 
-The file-local variable `hardhat-protect' is tested."
+The file-local variable `hardhat-protect' is tested.
+
+Any arguments are ignored."
   (when (and (or (not noninteractive) ert--running-tests)
              (buffer-file-name (current-buffer))
              (not buffer-read-only)
@@ -897,10 +899,10 @@ The file-local variable `hardhat-protect' is tested."
        (setq hardhat-reasons (list 'editable 'file-local-variable nil))
        (hardhat-mode -1)))))
 
-(defun hardhat-local-hook (&rest args)
+(defun hardhat-local-hook (&rest _ignored)
   "Hook to check a buffer for `hardhat-mode' protection.
 
-ARGS are ignored."
+Any arguments are ignored."
   (remove-hook 'pre-command-hook 'hardhat-local-hook t)
   (when (and hardhat-mode
              (or (not noninteractive) ert--running-tests)
@@ -914,10 +916,10 @@ ARGS are ignored."
                (nth 1 hardhat-reasons)
                (nth 2 hardhat-reasons)))))
 
-(defun hardhat-global-hook (&rest args)
+(defun hardhat-global-hook (&rest _ignored)
   "Hook to check all buffers for `hardhat-mode' protection.
 
-ARGS are ignored."
+Any arguments are ignored."
   (when global-hardhat-mode
     (with-demoted-errors
       (hardhat-maybe-turn-on))))
