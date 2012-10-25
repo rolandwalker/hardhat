@@ -152,15 +152,17 @@
 ;;; Code:
 ;;
 
-;;; requires
-
-(eval-when-compile
-  (defvar ert--running-tests))
+;;; requirements
 
 ;; for callf, setf, callf2, assert, remove-if-not
 (require 'cl)
 
 (require 'ignoramus nil t)
+
+;;; declarations
+
+(eval-when-compile
+  (defvar ert--running-tests))
 
 ;;; set-function for customize
 
