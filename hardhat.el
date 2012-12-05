@@ -184,7 +184,9 @@ SYMBOL and VALUE are passed to `custom-set-default'."
 (defgroup hardhat nil
   "Protect against clobbering user-writable files."
   :version "0.3.6"
-  :link '(emacs-commentary-link "hardhat")
+  :link '(emacs-commentary-link :tag "Commentary" "hardhat")
+  :link '(url-link :tag "Github" "http://github.com/rolandwalker/hardhat")
+  :link '(url-link :tag "EmacsWiki" "http://emacswiki.org/emacs/Hardhat")
   :prefix "hardhat-"
   :group 'convenience)
 
