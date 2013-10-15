@@ -309,6 +309,9 @@
 ;;; hardhat-global-hook (&rest args) -- todo
 
 
+;;; hardhat-mode -- todo
+
+
 ;;
 ;; Emacs
 ;;
