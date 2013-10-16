@@ -113,8 +113,6 @@
 ;;
 ;; TODO
 ;;
-;;     include more build-dirs for python and ruby
-;;
 ;;; License
 ;;
 ;; Simplified BSD License:
