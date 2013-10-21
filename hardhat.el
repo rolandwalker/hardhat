@@ -194,9 +194,8 @@ SYMBOL and VALUE are passed to `custom-set-default'."
 Set to nil or the empty string to disable the mode-line
 lighter for `hardhat-mode'."
   :type 'string
-  (when (>= emacs-major-version 23) :risky)
-  (when (>= emacs-major-version 23) t)
   :group 'hardhat)
+(put 'hardhat-mode-lighter 'risky-local-variable t)
 
 (defcustom hardhat-less-feedback nil
   "Give less echo area feedback."
