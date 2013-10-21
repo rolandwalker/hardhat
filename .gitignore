@@ -1,3 +1,4 @@
 /ert-tests/ert.el
 /ert-tests/ignoramus.el
 *-autoloads.el
+*.elc
