@@ -108,6 +108,4 @@ Prior art
 Bugs
 ----
 
-This is alpha-quality software; bugs are expected.
-
 More exceptions are certainly needed in `hardhat-fullpath-editable-regexps`.
