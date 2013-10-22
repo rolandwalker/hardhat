@@ -555,7 +555,7 @@ in GNU Emacs 24.1 or higher."
   "Run BODY and demote any errors to simple messages."
   (declare (debug t) (indent 0))
   (let ((err (make-symbol "err")))
-    `(condition-case-unless-debug ,err
+    `(condition-case ,err
          (progn ,@body)
        (error (message "Error: %S" ,err) nil)))))
 
