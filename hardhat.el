@@ -549,6 +549,16 @@ in GNU Emacs 24.1 or higher."
     (let ((inhibit-changing-match-data t))
       (string-match regexp string start))))
 
+(unless (fboundp 'with-demoted-errors)
+  ;; added in 23.x
+  (defmacro with-demoted-errors (&rest body)
+  "Run BODY and demote any errors to simple messages."
+  (declare (debug t) (indent 0))
+  (let ((err (make-symbol "err")))
+    `(condition-case-unless-debug ,err
+         (progn ,@body)
+       (error (message "Error: %S" ,err) nil)))))
+
 ;;; utility functions
 
 (defun hardhat--propertize-lighter ()
