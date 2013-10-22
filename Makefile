@@ -34,7 +34,7 @@ TEST_DEP_1=ert
 TEST_DEP_1_STABLE_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=emacs-24.3
 TEST_DEP_1_LATEST_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=master
 TEST_DEP_2=ignoramus
-TEST_DEP_2_STABLE_URL=https://raw.github.com/rolandwalker/ignoramus/f530a8d58fa8422c651015260600eeda7baefc15/ignoramus.el
+TEST_DEP_2_STABLE_URL=https://raw.github.com/rolandwalker/ignoramus/37536286eb1da6d7bb9590e039485c456fdfd245/ignoramus.el
 TEST_DEP_2_LATEST_URL=https://raw.github.com/rolandwalker/ignoramus/master/ignoramus.el
 
 .PHONY : build dist not-dirty pkg-version downloads downloads-latest autoloads \
