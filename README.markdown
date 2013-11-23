@@ -110,3 +110,6 @@ Bugs
 ----
 
 More exceptions are certainly needed in `hardhat-fullpath-editable-regexps`.
+
+Hardhat protection is currently disabled when editing remote files via TRAMP
+for performance reasons.
