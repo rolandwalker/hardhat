@@ -908,6 +908,22 @@ ARG is omitted or nil."
                 (not hardhat-less-feedback))
        (message "Global-Hardhat mode enabled")))))
 
+(defun global-hardhat-mode--setter (sym val)
+  (assert (eq sym 'global-hardhat-mode) nil
+          "This function should only be called on `global-hardhat-mode'.")
+  (global-hardhat-mode (if val 1 -1))
+  (setq-default sym val))
+
+(defcustom global-hardhat-mode nil
+  "Non-nil if Global-Hardhat mode is enabled.
+See the command `global-hardhat-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-hardhat-mode'."
+  :group 'hardhat
+  :type 'boolean
+  :set #'global-hardhat-mode--setter)
+
 ;;; hooks
 
 (defun hardhat-local-variables-hook (&rest _ignored)
