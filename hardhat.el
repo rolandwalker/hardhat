@@ -625,17 +625,9 @@ files only.  For remote files, the following is used
     (file-remote-p FILENAME 'localname)
 
 which, though *not* equivalent to `file-truename', is better than
-a wedge.
-
-If FILENAME is nil, return nil. This facilitates the following
-usage:
-
-    (hardhat-safe-file-truename (buffer-filename BUF))
-
-since `buffer-file-name' can return nil."
-  (when filename
-    (or (file-remote-p filename 'localname)
-        (file-truename filename))))
+a wedge."
+  (or (file-remote-p filename 'localname)
+      (file-truename filename)))
 
 ;;; functions which may de/activate protection
 
