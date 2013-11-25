@@ -613,14 +613,14 @@ in GNU Emacs 24.1 or higher."
               (setq computed (format "\\(%s\\)" (mapconcat 'identity computed "\\|")))
               (puthash criterion computed (gethash directive (gethash major-mode hardhat-computed-regexps))))))))))
 
-(defun file-truename-or-localname (filename)
+(defun hardhat-safe-file-truename (filename)
   "Call `file-truename' for local files, `file-remote-p' for remote files.
 
 Speficially, for remote files, return `(file-remote-p FILENAME
 'localname)'.
 
 If FILENAME is nil, return nil. This facilitates the following
-usage: `(file-truename-or-localname (buffer-filename BUF))' since
+usage: `(hardhat-safe-file-truename (buffer-filename BUF))' since
 `buffer-file-name' can return nil."
   (when filename
     (if (file-remote-p filename)
@@ -673,11 +673,11 @@ associated with BUF for the purpose of optimization."
                      (widen))
                    (cond
                      ((eq criterion 'basename)
-                      (callf or basename (file-name-nondirectory (file-truename-or-localname (buffer-file-name buf))))
+                      (callf or basename (file-name-nondirectory (hardhat-safe-file-truename (buffer-file-name buf))))
                       (when (string-match regexp basename)
                         (match-string 1 basename)))
                      ((eq criterion 'fullpath)
-                      (callf or file (file-truename-or-localname (buffer-file-name buf)))
+                      (callf or file (hardhat-safe-file-truename (buffer-file-name buf)))
                       (when (string-match regexp file)
                         (match-string 1 file)))
                      ((eq criterion 'bof-content)
@@ -702,7 +702,7 @@ If ignoramus.el is not present, fails silently.
 This function may be used as a member of `hardhat-buffer-protected-functions'."
   (when (and (fboundp 'ignoramus-boring-p)
              (bufferp buf))
-    (callf or file (file-truename-or-localname (expand-file-name (buffer-file-name buf))))
+    (callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
     (when (ignoramus-boring-p file)
       buf)))
 
@@ -767,7 +767,7 @@ encourages the installation of user-writable files under
 Optional FILE overrides the file associated with BUF for the
 purpose of optimization."
   (when (eq system-type 'darwin)
-    (callf or file (file-truename-or-localname (expand-file-name (buffer-file-name buf))))
+    (callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
     (when (and (string-match-p "\\`/usr/local/" file)
                (file-writable-p file))
       buf)))
@@ -779,7 +779,7 @@ purpose of optimization."
              (buffer-file-name buf)
              (not buffer-read-only)
              (not buffer-file-read-only))
-    (let* ((file (file-truename-or-localname (expand-file-name (buffer-file-name buf))))
+    (let* ((file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
            (basename (file-name-nondirectory file))
            (answer nil))
       (when (fboundp 'ignoramus-compute-common-regexps)
