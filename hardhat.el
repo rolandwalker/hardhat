@@ -634,9 +634,8 @@ usage:
 
 since `buffer-file-name' can return nil."
   (when filename
-    (if (file-remote-p filename)
-        (file-remote-p filename 'localname)
-      (file-truename filename))))
+    (or (file-remote-p filename 'localname)
+        (file-truename filename))))
 
 ;;; functions which may de/activate protection
 
