@@ -614,14 +614,25 @@ in GNU Emacs 24.1 or higher."
               (puthash criterion computed (gethash directive (gethash major-mode hardhat-computed-regexps))))))))))
 
 (defun hardhat-safe-file-truename (filename)
-  "Call `file-truename' for local files, `file-remote-p' for remote files.
+  "Return the truename of FILENAME if it is safe to do so.
 
-Speficially, for remote files, return `(file-remote-p FILENAME
-'localname)'.
+`file-truename' can wedge infinitely for remote files in the case
+that the connection to the remote host is lost.
+
+This is a safer wrapper which employs `file-truename' for local
+files only.  For remote files, the following is used
+
+    (file-remote-p FILENAME 'localname)
+
+which, though *not* equivalent to `file-truename', is better than
+a wedge.
 
 If FILENAME is nil, return nil. This facilitates the following
-usage: `(hardhat-safe-file-truename (buffer-filename BUF))' since
-`buffer-file-name' can return nil."
+usage:
+
+    (hardhat-safe-file-truename (buffer-filename BUF))
+
+since `buffer-file-name' can return nil."
   (when filename
     (if (file-remote-p filename)
         (file-remote-p filename 'localname)
