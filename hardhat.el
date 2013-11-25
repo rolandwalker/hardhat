@@ -215,6 +215,14 @@ See `hardhat-eof-content-protected-regexps' and `hardhat-eof-content-editable-re
   :type 'integer
   :group 'hardhat)
 
+(defcustom hardhat-use-unsafe-remote-truename nil
+  "Unconditionally use `file-truename' on remote files.
+
+This makes certain checks more accurate, but can wedge Emacs if
+your connection to a remote host is lost."
+  :type 'boolean
+  :group 'hardhat)
+
 ;;;###autoload
 (defgroup hardhat-protect nil
   "Rules for activating `hardhat-mode' protection in a buffer."
@@ -625,8 +633,12 @@ files only.  For remote files, the following is used
     (file-remote-p FILENAME 'localname)
 
 which, though *not* equivalent to `file-truename', is better than
-a wedge."
-  (or (file-remote-p filename 'localname)
+a wedge.
+
+This behavior can be overridden by setting customizable variable
+`hardhat-use-unsafe-remote-truename' to a non-nil value."
+  (or (and (not hardhat-use-unsafe-remote-truename)
+           (file-remote-p filename 'localname))
       (file-truename filename)))
 
 ;;; functions which may de/activate protection
