@@ -110,9 +110,6 @@
 ;;
 ;;     More exceptions are certainly needed in `hardhat-fullpath-editable-regexps'
 ;;
-;;     Hardhat protection is currently disabled when editing remote files via TRAMP
-;;     for performance reasons.
-;;
 ;; TODO
 ;;
 ;;; License
@@ -777,9 +774,7 @@ purpose of optimization."
 
 (defun hardhat-buffer-included-p (buf)
   "Return BUF if `global-hardhat-mode' should enable `hardhat-mode' in BUF."
-  (when (and (or (null (buffer-file-name buf))
-                 (not (file-remote-p (buffer-file-name buf))))
-             (or (not noninteractive) ert--running-tests)
+  (when (and (or (not noninteractive) ert--running-tests)
              (bufferp buf)
              (buffer-file-name buf)
              (not buffer-read-only)
