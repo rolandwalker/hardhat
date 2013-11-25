@@ -445,7 +445,7 @@ All patterns are case-insensitive."
 ;; todo @@@ more editable exceptions needed here
 (defcustom hardhat-fullpath-editable-regexps '(
                                                "~/\\.cpan/CPAN/MyConfig\\.pm\\'"
-                                               "/\\.git/\\(?:.+/\\)?\\(?:COMMIT_EDITMSG\\|MERGE_MSG\\|SQUASH_MSG\\|TAG_EDITMSG\\|rebase-merge/git-rebase-todo\\|description\\|hooks/\\|config\\|GHI_ISSUE\\)\\'"
+                                               "/\\.git/\\(?:.+/\\)?\\(?:COMMIT_EDITMSG\\|MERGE_MSG\\|SQUASH_MSG\\|TAG_EDITMSG\\|rebase-merge/git-rebase-todo\\|description\\|info/\\|hooks/\\|config\\|GHI_ISSUE\\)\\'"
                                                ;; "~/\\.cabal/"
                                                ;; "~/perl5/perlbrew/"
                                                ;; "~/\\.npm/"
