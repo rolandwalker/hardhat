@@ -912,7 +912,7 @@ ARG is omitted or nil."
   (assert (eq sym 'global-hardhat-mode) nil
           "This function should only be called on `global-hardhat-mode'.")
   (global-hardhat-mode (if val 1 -1))
-  (setq-default sym val))
+  (set-default sym val))
 
 (defcustom global-hardhat-mode nil
   "Non-nil if Global-Hardhat mode is enabled.
