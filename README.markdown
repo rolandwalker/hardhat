@@ -110,3 +110,10 @@ Bugs
 ----
 
 More exceptions are certainly needed in `hardhat-fullpath-editable-regexps`.
+
+Because Emacs can wedge if `file-truename` is called on a
+remote file (eg when using TRAMP), some filename tests used in
+hardhat are not precisely equivalent between local and remote
+files.  You can change this behavior by setting
+`hardhat-use-unsafe-remote-truename` via customize.  A better
+solution is to set `find-file-visit-truename` globally.
