@@ -425,6 +425,7 @@ All patterns are case-insensitive."
                                                "\\`svn-commit\\.tmp\\'"               ; svn
                                                "\\`zshecl[0-9]+"                      ; zsh
                                                "\\`bash-fc-[0-9]+\\'"                 ; bash
+                                               "\\`core\\.cljs?\\'"                   ; lein/clojure
                                                )
   "Allow editing in a buffer if these patterns match filename (sans directory).
 
