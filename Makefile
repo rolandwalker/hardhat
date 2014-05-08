@@ -22,7 +22,7 @@ EMACS_BATCH=$(EMACS_CLEAN) --batch
 TESTS=
 WIKI_USERNAME=roland.walker
 
-CURL=curl --silent
+CURL=curl --location --silent
 EDITOR=runemacs -no_wait
 WORK_DIR=$(shell pwd)
 PACKAGE_NAME=$(shell basename $(WORK_DIR))
@@ -34,8 +34,8 @@ TEST_DEP_1=ert
 TEST_DEP_1_STABLE_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=emacs-24.3
 TEST_DEP_1_LATEST_URL=http://git.savannah.gnu.org/cgit/emacs.git/plain/lisp/emacs-lisp/ert.el?h=master
 TEST_DEP_2=ignoramus
-TEST_DEP_2_STABLE_URL=https://raw.github.com/rolandwalker/ignoramus/37536286eb1da6d7bb9590e039485c456fdfd245/ignoramus.el
-TEST_DEP_2_LATEST_URL=https://raw.github.com/rolandwalker/ignoramus/master/ignoramus.el
+TEST_DEP_2_STABLE_URL=https://raw.githubusercontent.com/rolandwalker/ignoramus/37536286eb1da6d7bb9590e039485c456fdfd245/ignoramus.el
+TEST_DEP_2_LATEST_URL=https://raw.githubusercontent.com/rolandwalker/ignoramus/master/ignoramus.el
 
 .PHONY : build dist not-dirty pkg-version downloads downloads-latest autoloads \
  test-autoloads test-travis test test-prep test-batch test-interactive         \

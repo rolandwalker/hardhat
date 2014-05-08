@@ -4,7 +4,7 @@
 ;;
 ;; Author: Roland Walker <walker@pobox.com>
 ;; Homepage: http://github.com/rolandwalker/hardhat
-;; URL: http://raw.github.com/rolandwalker/hardhat/master/hardhat.el
+;; URL: http://raw.githubusercontent.com/rolandwalker/hardhat/master/hardhat.el
 ;; Version: 0.4.4
 ;; Last-Updated:  8 May 2014
 ;; EmacsWiki: Hardhat
