@@ -1,12 +1,10 @@
 [![Build Status](https://secure.travis-ci.org/rolandwalker/hardhat.png?branch=master)](http://travis-ci.org/rolandwalker/hardhat)
 
-Overview
-========
+# Overview
 
 Protect against clobbering user-writable files in Emacs.
 
-Quickstart
-----------
+## Quickstart
 
 ```elisp
 (require 'hardhat)
@@ -22,8 +20,7 @@ Quickstart
 ;; and many others
 ```
 
-Explanation
------------
+## Explanation
 
 A recent unwholesome trend is for package managers to install files
 in locations such as `~/.cabal/`, `~/.rvm/`, or `~/.emacs.d/elpa/`.
@@ -63,13 +60,11 @@ a buffer, the following interactive command is provided
 
 but not bound to any key.
 
-See Also
---------
+## See Also
 
 M-x customize-group RET hardhat RET
 
-Notes
------
+## Notes
 
 `hardhat-mode` takes no action until the user attempts an
 interactive command in a buffer.  This is (out of an abundance
@@ -88,8 +83,7 @@ Regular-expression matches are case-insensitive.  A case-
 sensitive test can be implemented by adding custom function
 to eg `hardhat-buffer-protected-functions`.
 
-Compatibility and Requirements
-------------------------------
+## Compatibility and Requirements
 
 	GNU Emacs version 24.4-devel     : yes, at the time of writing
 	GNU Emacs version 24.3           : yes
@@ -99,15 +93,13 @@ Compatibility and Requirements
 
 Uses if present: [ignoramus.el](http://github.com/rolandwalker/ignoramus)
 
-Prior art
----------
+## Prior art
 
 * do-not-edit.el  
   <http://user42.tuxfamily.org/do-not-edit/index.html>  
   Kevin Ryde <user42@zip.com.au>  
 
-Bugs
-----
+## Bugs
 
 More exceptions are certainly needed in `hardhat-fullpath-editable-regexps`.
 
