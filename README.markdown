@@ -62,7 +62,7 @@ but not bound to any key.
 
 ## See Also
 
-<kbd>M-x</kbd> <kbd>customize-group</kbd> <kbd>RET</kbd> <kbd>hardhat</kbd> <kbd>RET</kbd>
+* <kbd>M-x</kbd> <kbd>customize-group</kbd> <kbd>RET</kbd> <kbd>hardhat</kbd> <kbd>RET</kbd>
 
 ## Notes
 
