@@ -8,7 +8,7 @@ Protect against clobbering user-writable files in Emacs.
 Quickstart
 ----------
 
-```lisp
+```elisp
 (require 'hardhat)
  
 (global-hardhat-mode 1)
@@ -51,7 +51,7 @@ has no effect.
 To use hardhat, place the hardhat.el library somewhere
 Emacs can find it, and add the following to your ~/.emacs file:
 
-```lisp
+```elisp
 (require 'hardhat)
 (global-hardhat-mode 1)
 ```
