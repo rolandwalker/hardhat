@@ -39,7 +39,7 @@ The read-only protection can be turned off for a buffer by the
 usual methods, or by toggling off buffer-local `hardhat-mode` via
 the lighter menu or
 
-	M-x hardhat-mode RET
+<kbd>M-x</kbd> <kbd>hardhat-mode</kbd> <kbd>RET</kbd>
 
 If a buffer is not visiting a file, `hardhat-mode` has no effect.
 If the visited file is not writable by the user, `hardhat-mode`
@@ -62,7 +62,7 @@ but not bound to any key.
 
 ## See Also
 
-M-x customize-group RET hardhat RET
+<kbd>M-x</kbd> <kbd>customize-group</kbd> <kbd>RET</kbd> <kbd>hardhat</kbd> <kbd>RET</kbd>
 
 ## Notes
 
