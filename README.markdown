@@ -72,7 +72,7 @@ of caution) for compatibility: an Emacs Lisp library may freely
 open and write to a file protected by `hardhat-mode`, so long as
 it is done programatically.
 
-For any of the options settable in customize, rules making
+For any of the options settable in `customize`, rules making
 buffers "editable" override rules making buffers "protected".
 
 A Boolean file-local variable `hardhat-protect` is provided.
@@ -107,5 +107,5 @@ Because Emacs can wedge if `file-truename` is called on a
 remote file (eg when using TRAMP), some filename tests used in
 hardhat are not precisely equivalent between local and remote
 files.  You can change this behavior by setting
-`hardhat-use-unsafe-remote-truename` via customize.  A better
+`hardhat-use-unsafe-remote-truename` via `customize`.  A better
 solution is to set `find-file-visit-truename` globally.
