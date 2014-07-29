@@ -45,8 +45,8 @@ If a buffer is not visiting a file, `hardhat-mode` has no effect.
 If the visited file is not writable by the user, `hardhat-mode`
 has no effect.
 
-To use hardhat, place the hardhat.el library somewhere
-Emacs can find it, and add the following to your ~/.emacs file:
+To use hardhat, place the `hardhat.el` library somewhere
+Emacs can find it, and add the following to your `~/.emacs` file:
 
 ```elisp
 (require 'hardhat)
