@@ -31,7 +31,7 @@ In addition, many user-writable files created in the course of
 ordinary work should never be altered by a text editor, *eg* the
 database stored in a `.git` directory.
 
-Hardhat.el provides an extra layer of protection in your work.  If
+`hardhat.el` provides an extra layer of protection in your work.  If
 you visit a file which looks unsafe to edit, Emacs will make the
 buffer read-only -- even when the underlying file is writable.
 
@@ -95,7 +95,7 @@ Uses if present: [ignoramus.el](http://github.com/rolandwalker/ignoramus)
 
 ## Prior art
 
-* do-not-edit.el  
+* do-not-edit  
   <http://user42.tuxfamily.org/do-not-edit/index.html>  
   Kevin Ryde <user42@zip.com.au>  
 
