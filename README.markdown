@@ -4,6 +4,14 @@
 
 Protect against clobbering user-writable files in Emacs.
 
+ * [Quickstart](#quickstart)
+ * [Explanation](#explanation)
+ * [See Also](#see-also)
+ * [Notes](#notes)
+ * [Compatibility and Requirements](#compatibility-and-requirements)
+ * [Prior art](#prior-art)
+ * [Bugs](#bugs)
+
 ## Quickstart
 
 ```elisp
@@ -62,7 +70,7 @@ but not bound to any key.
 
 ## See Also
 
-* <kbd>M-x</kbd> <kbd>customize-group</kbd> <kbd>RET</kbd> <kbd>hardhat</kbd> <kbd>RET</kbd>
+ * <kbd>M-x</kbd> <kbd>customize-group</kbd> <kbd>RET</kbd> <kbd>hardhat</kbd> <kbd>RET</kbd>
 
 ## Notes
 
@@ -95,9 +103,9 @@ Uses if present: [ignoramus.el](http://github.com/rolandwalker/ignoramus)
 
 ## Prior art
 
-* do-not-edit  
-  <http://user42.tuxfamily.org/do-not-edit/index.html>  
-  Kevin Ryde <user42@zip.com.au>  
+ * do-not-edit  
+   <http://user42.tuxfamily.org/do-not-edit/index.html>  
+   Kevin Ryde <user42@zip.com.au>  
 
 ## Bugs
 
