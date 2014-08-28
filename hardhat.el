@@ -337,6 +337,8 @@ All patterns are case-insensitive."
                                                 "/SCCS/"
                                                 "/blib/"
                                                 "/test_output/"
+                                                "~/\\.emacs\\.d/\\.cask/"
+                                                "~/\\.cask/"
                                                 )
   "Protect buffer from editing if these patterns match into full path to file.
 
