@@ -1,4 +1,4 @@
-;;; hardhat.el --- Protect against clobbering user-writable files
+;;; hardhat.el --- Protect against clobbering user-writable files -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2012-2015 Roland Walker
 ;;
