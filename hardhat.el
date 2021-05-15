@@ -1,4 +1,4 @@
-;;; hardhat.el --- Protect against clobbering user-writable files
+;;; hardhat.el --- Protect against clobbering user-writable files -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2012-2015 Roland Walker
 ;;
@@ -8,7 +8,7 @@
 ;; Version: 0.4.6
 ;; Last-Updated: 14 Apr 2016
 ;; EmacsWiki: Hardhat
-;; Package-Requires: ((ignoramus "0.7.0"))
+;; Package-Requires: ((emacs "24.3") (ignoramus "0.7.0"))
 ;; Keywords: convenience
 ;;
 ;; Simplified BSD License
@@ -162,7 +162,7 @@
 ;;; requirements
 
 ;; for callf, setf, callf2, assert, remove-if-not
-(require 'cl)
+(require 'cl-lib)
 
 (require 'ignoramus nil t)
 
@@ -584,7 +584,7 @@ in GNU Emacs 24.1 or higher."
   "Add properties to the `hardhat-mode' lighter."
   (when (and (stringp hardhat-mode-lighter)
              (> (length hardhat-mode-lighter) 0))
-    (callf propertize hardhat-mode-lighter
+    (cl-callf propertize hardhat-mode-lighter
                       hardhat-lighter-keymap-property hardhat-lighter-map
                      'help-echo (format "Hardhat: mouse-%s menu" hardhat-lighter-menu-mouse-button))))
 
@@ -625,8 +625,8 @@ in GNU Emacs 24.1 or higher."
                        1))))
             ;; sanity check
             (when computed
-              (callf2 remove-if-not 'stringp computed)
-              (callf2 remove-if-not #'(lambda (str-val)
+              (cl-callf2 cl-remove-if-not 'stringp computed)
+              (cl-callf2 cl-remove-if-not #'(lambda (str-val)
                                         (> (length str-val) 0)) computed))
             ;; construct and store regexp
             (when computed
@@ -667,8 +667,8 @@ associated with BUF for the purpose of optimization."
   (when (and (or (not noninteractive) ert--running-tests)
              (bufferp buf)
              (or file basename (buffer-file-name buf)))
-    (assert (memq directive hardhat-directives) nil "Bad DIRECTIVE")
-    (assert (memq criterion hardhat-criteria)   nil "Bad CRITERION")
+    (cl-assert (memq directive hardhat-directives) nil "Bad DIRECTIVE")
+    (cl-assert (memq criterion hardhat-criteria)   nil "Bad CRITERION")
     (with-current-buffer buf
       (cond
         ((eq criterion 'function)
@@ -699,11 +699,11 @@ associated with BUF for the purpose of optimization."
                      (widen))
                    (cond
                      ((eq criterion 'basename)
-                      (callf or basename (file-name-nondirectory (hardhat-safe-file-truename (buffer-file-name buf))))
+                      (cl-callf or basename (file-name-nondirectory (hardhat-safe-file-truename (buffer-file-name buf))))
                       (when (string-match regexp basename)
                         (match-string 1 basename)))
                      ((eq criterion 'fullpath)
-                      (callf or file (hardhat-safe-file-truename (buffer-file-name buf)))
+                      (cl-callf or file (hardhat-safe-file-truename (buffer-file-name buf)))
                       (when (string-match regexp file)
                         (match-string 1 file)))
                      ((eq criterion 'bof-content)
@@ -728,7 +728,7 @@ If ignoramus.el is not present, fails silently.
 This function may be used as a member of `hardhat-buffer-protected-functions'."
   (when (and (fboundp 'ignoramus-boring-p)
              (bufferp buf))
-    (callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
+    (cl-callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
     (when (ignoramus-boring-p file)
       buf)))
 
@@ -793,7 +793,7 @@ encourages the installation of user-writable files under
 Optional FILE overrides the file associated with BUF for the
 purpose of optimization."
   (when (eq system-type 'darwin)
-    (callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
+    (cl-callf or file (hardhat-safe-file-truename (expand-file-name (buffer-file-name buf))))
     (when (and (string-match-p "\\`/usr/local/" file)
                (file-writable-p file))
       buf)))
@@ -843,7 +843,7 @@ is 'toggle."
         (when (and (stringp hardhat-mode-lighter)
                    (not (local-variable-p 'hardhat-mode-lighter)))
           (make-local-variable 'hardhat-mode-lighter)
-          (callf concat hardhat-mode-lighter "[on]")
+          (cl-callf concat hardhat-mode-lighter "[on]")
           (hardhat--propertize-lighter))
         (add-hook 'pre-command-hook 'hardhat-local-hook nil t)
         (when (hardhat-called-interactively-p 'interactive)
@@ -892,7 +892,7 @@ In addition, the buffer is tested according to the functions in
     `hardhat-buffer-editable-functions'
 
 If called with a negative ARG, deactivate `hardhat-mode' in the buffer."
-  (callf or arg 1)
+  (cl-callf or arg 1)
   (when (or (< arg 0)
             (hardhat-buffer-included-p (current-buffer)))
     (hardhat-mode arg)))
@@ -909,17 +909,17 @@ ARG is omitted or nil."
   (interactive "P")
   (cond
     ((hardhat-called-interactively-p 'interactive)
-     (callf or arg (if global-hardhat-mode -1 1)))
+     (cl-callf or arg (if global-hardhat-mode -1 1)))
     (t
-     (callf or arg 1)))
-  (callf prefix-numeric-value arg)
+     (cl-callf or arg 1)))
+  (cl-callf prefix-numeric-value arg)
   (cond
     ((< arg 0)
      (remove-hook 'find-file-hook 'hardhat-global-hook)
      (remove-hook 'after-change-major-mode-hook 'hardhat-global-hook)
      (remove-hook 'hack-local-variables-hook 'hardhat-local-variables-hook)
      (setq global-hardhat-mode nil)
-     (dolist (buf (remove-if-not #'(lambda (buf)
+     (dolist (buf (cl-remove-if-not #'(lambda (buf)
                                      (ignore-errors
                                        (buffer-local-value 'hardhat-mode buf)))
                                  (buffer-list)))
@@ -944,7 +944,7 @@ ARG is omitted or nil."
        (message "Global-Hardhat mode enabled")))))
 
 (defun global-hardhat-mode--setter (sym val)
-  (assert (eq sym 'global-hardhat-mode) nil
+  (cl-assert (eq sym 'global-hardhat-mode) nil
           "This function should only be called on `global-hardhat-mode'.")
   (global-hardhat-mode (if val 1 -1))
   (set-default sym val))
